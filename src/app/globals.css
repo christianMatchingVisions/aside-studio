@@ -1,0 +1,236 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ---------- design tokens ---------- */
+:root {
+  --font-display: var(--font-baloo), "Baloo 2", ui-rounded, system-ui, sans-serif;
+  --font-body: var(--font-figtree), "Figtree", system-ui, sans-serif;
+
+  /* troop palette */
+  --c-red: #f0402e;
+  --c-red-deep: #c4281a;
+  --c-yellow: #ffc531;
+  --c-yellow-deep: #e2a300;
+  --c-green: #3dbe4e;
+  --c-green-deep: #24923a;
+  --c-pink: #f0479a;
+  --c-blue: #47b4f0;
+  --c-blue-deep: #1f88c9;
+  --c-purple: #7b4be0;
+  --c-orange: #ff8a2b;
+  --c-cream: #fff6e9;
+  --c-choc: #2a1b12;
+
+  /* semantic (light) */
+  --bg: #fff6e9;
+  --bg-2: #ffeed6;
+  --surface: #ffffff;
+  --surface-2: #fff9f0;
+  --ink: #2a1b12;
+  --ink-2: #5e4a3b;
+  --ink-3: #8a7563;
+  --line: rgba(42, 27, 18, 0.12);
+  --line-strong: rgba(42, 27, 18, 0.9);
+  --shadow-ink: rgba(42, 27, 18, 1);
+  --shadow-soft: 0 18px 40px -18px rgba(42, 27, 18, 0.35);
+  --nav-bg: rgba(255, 246, 233, 0.82);
+  --halftone-opacity: 0.16;
+
+  --radius-sm: 12px;
+  --radius: 22px;
+  --radius-lg: 34px;
+  --radius-pill: 999px;
+
+  color-scheme: light;
+}
+
+.dark {
+  --bg: #1b1320;
+  --bg-2: #221829;
+  --surface: #2a1e33;
+  --surface-2: #32243d;
+  --ink: #fff3e4;
+  --ink-2: #d9c8b6;
+  --ink-3: #a8957f;
+  --line: rgba(255, 243, 228, 0.12);
+  --line-strong: rgba(255, 243, 228, 0.85);
+  --shadow-ink: rgba(8, 4, 12, 1);
+  --shadow-soft: 0 18px 40px -18px rgba(0, 0, 0, 0.7);
+  --nav-bg: rgba(27, 19, 32, 0.8);
+  --halftone-opacity: 0.08;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+
+  --color-red: var(--c-red);
+  --color-red-deep: var(--c-red-deep);
+  --color-yellow: var(--c-yellow);
+  --color-yellow-deep: var(--c-yellow-deep);
+  --color-green: var(--c-green);
+  --color-green-deep: var(--c-green-deep);
+  --color-pink: var(--c-pink);
+  --color-blue: var(--c-blue);
+  --color-blue-deep: var(--c-blue-deep);
+  --color-purple: var(--c-purple);
+  --color-orange: var(--c-orange);
+  --color-cream: var(--c-cream);
+  --color-choc: var(--c-choc);
+
+  --color-bg: var(--bg);
+  --color-bg-2: var(--bg-2);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-line: var(--line);
+
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius);
+  --radius-lg: var(--radius-lg);
+}
+
+/* ---------- base ---------- */
+html {
+  scroll-behavior: auto;
+  -webkit-text-size-adjust: 100%;
+}
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-feature-settings: "ss01", "cv11";
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+  transition: background-color 0.35s ease, color 0.35s ease;
+}
+
+::selection {
+  background: var(--c-yellow);
+  color: var(--c-choc);
+}
+
+h1, h2, h3, h4, .display {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  line-height: 0.98;
+}
+
+/* ---------- utilities ---------- */
+@utility container-x {
+  width: 100%;
+  max-width: 80rem;
+  margin-inline: auto;
+  padding-inline: 1rem;
+  @media (min-width: 640px) { padding-inline: 1.5rem; }
+  @media (min-width: 1024px) { padding-inline: 2.5rem; }
+}
+
+/* chunky "sticker" text: choc outline + hard drop */
+@utility text-sticker {
+  -webkit-text-stroke: 0.035em var(--c-choc);
+  paint-order: stroke fill;
+  text-shadow: 0.06em 0.07em 0 var(--c-choc);
+}
+@utility text-sticker-sm {
+  -webkit-text-stroke: 0.03em var(--c-choc);
+  paint-order: stroke fill;
+  text-shadow: 0.04em 0.05em 0 var(--c-choc);
+}
+
+/* hard offset shadow card */
+@utility card-hard {
+  background: var(--surface);
+  border: 2.5px solid var(--line-strong);
+  box-shadow: 6px 7px 0 var(--shadow-ink);
+  border-radius: var(--radius);
+}
+@utility card-soft {
+  background: var(--surface);
+  border: 1.5px solid var(--line);
+  box-shadow: var(--shadow-soft);
+  border-radius: var(--radius);
+}
+
+/* comic halftone backdrop */
+@utility bg-halftone {
+  background-image: radial-gradient(circle at 1.5px 1.5px, currentColor 1.5px, transparent 1.6px);
+  background-size: 14px 14px;
+}
+
+/* diagonal candy stripes */
+@utility bg-stripes {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    color-mix(in srgb, currentColor 14%, transparent) 0 14px,
+    transparent 14px 28px
+  );
+}
+
+/* clip for word-reveal headlines */
+@utility clip-words {
+  & .word { display: inline-block; overflow: hidden; vertical-align: bottom; }
+  & .word > span { display: inline-block; will-change: transform; }
+}
+
+/* reduce-motion safe defaults for reveal targets: visible unless JS hides them */
+[data-reveal] { opacity: 1; }
+.js-motion [data-reveal] { opacity: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  .js-motion [data-reveal] { opacity: 1 !important; transform: none !important; }
+  *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+}
+
+/* focus ring */
+:focus-visible {
+  outline: 3px solid var(--c-blue);
+  outline-offset: 3px;
+  border-radius: 8px;
+}
+
+/* marquee */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 28s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) { .marquee-track { animation: none; } }
+
+/* wobble for stickers */
+@keyframes bob {
+  0%, 100% { transform: translateY(0) rotate(var(--rot, 0deg)); }
+  50% { transform: translateY(-10px) rotate(calc(var(--rot, 0deg) + 3deg)); }
+}
+.bob { animation: bob 4.5s ease-in-out infinite; }
+
+/* legal prose */
+.prose-legal h2 { font-size: 1.5rem; margin-top: 2.25rem; margin-bottom: 0.75rem; }
+.prose-legal h3 { font-size: 1.15rem; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+.prose-legal p, .prose-legal li { color: var(--ink-2); line-height: 1.7; margin-bottom: 0.9rem; }
+.prose-legal ul { list-style: disc; padding-left: 1.4rem; }
+.prose-legal a { color: var(--c-blue-deep); text-decoration: underline; text-underline-offset: 3px; }
+.dark .prose-legal a { color: var(--c-blue); }
