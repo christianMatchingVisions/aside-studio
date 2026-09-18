@@ -97,6 +97,7 @@ const JOBS = {
   "icon-chips": { prompt: `${STYLE_FLAT} A short stack of three casino chips in red, green and yellow.`, transparent: true },
   "icon-trophy": { prompt: `${STYLE_FLAT} A gold trophy cup with a small star on it.`, transparent: true },
   "icon-flag": { prompt: `${STYLE_FLAT} A waving chequered racing flag on a short pole.`, transparent: true },
+  "icon-finishflag": { prompt: `${STYLE_FLAT} A classic motorsport finish flag: strictly black and white chequered squares only, waving, on a short wooden pole. No other colours on the flag itself.`, transparent: true, quality: "high" },
   "icon-revolver": { prompt: `${STYLE_FLAT} A cartoon toy cowboy revolver with a wooden grip, side view, harmless toy style.`, transparent: true },
   "icon-cowboyhat": { prompt: `${STYLE_FLAT} A cartoon cowboy hat, front view.`, transparent: true },
   "icon-eye": { prompt: `${STYLE_FLAT} A big round cartoon googly eye with a highlight, like a party game character eye.`, transparent: true },

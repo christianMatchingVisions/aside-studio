@@ -23,13 +23,6 @@ const TROOP = [
   { src: "/chars/doof-blue.webp", w: 220, pct: 13, cls: "left-[46%] top-[-5%]", depth: 0.4, dir: -1, rot: 14 },
 ];
 
-const STICKERS = [
-  { src: "/stickers/star.webp", w: 240, pct: 9, cls: "left-[8%] top-[42%]", depth: 0.9, rot: 12 },
-  { src: "/stickers/bolt.webp", w: 240, pct: 10, cls: "right-[14%] top-[36%]", depth: 1, rot: -14 },
-  { src: "/stickers/cloud.webp", w: 240, pct: 14, cls: "left-[24%] top-[86%]", depth: 0.5, rot: 0 },
-  { src: "/stickers/coin.webp", w: 240, pct: 7.5, cls: "right-[28%] top-[78%]", depth: 0.75, rot: 8 },
-];
-
 export function Hero() {
   const root = useRef<HTMLElement>(null);
   const doof = useRef<HTMLDivElement>(null);
@@ -58,8 +51,7 @@ export function Hero() {
           .fromTo(q('[data-in="doof"]'), { x: 260, y: 40, rotation: 10, opacity: 0 }, { x: 0, y: 0, rotation: 0, opacity: 1, duration: 1.1, ease: "back.out(1.2)" }, 0.1)
           .fromTo(q('[data-in="dust"]'), { scale: 0.3, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.6, ease: "power2.out" }, 0.75)
           .fromTo(q('[data-in="lines"]'), { scale: 0.7, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.9 }, 0.3)
-          .fromTo(q('[data-in="troop"]'), { scale: 0, opacity: 0, rotation: () => gsap.utils.random(-40, 40) }, { scale: 1, opacity: 1, rotation: (_i, t) => Number((t as HTMLElement).dataset.rot), duration: 0.7, ease: "back.out(2)", stagger: { each: 0.08, from: "random" } }, 0.7)
-          .fromTo(q('[data-in="sticker"]'), { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.5, ease: "back.out(2.5)", stagger: 0.06 }, 1.0);
+          .fromTo(q('[data-in="troop"]'), { scale: 0, opacity: 0, rotation: () => gsap.utils.random(-40, 40) }, { scale: 1, opacity: 1, rotation: (_i, t) => Number((t as HTMLElement).dataset.rot), duration: 0.7, ease: "back.out(2)", stagger: { each: 0.08, from: "random" } }, 0.7);
       };
       if (window.__introDone) enter();
       else window.addEventListener(INTRO_EVENT, enter, { once: true });
@@ -152,7 +144,7 @@ export function Hero() {
       <div className="absolute inset-0 -z-30" data-scroll="0.15">
         <Image src="/gen/hero-sky.webp" alt="" fill priority sizes="100vw" className="object-cover object-bottom" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-(--bg)/60" />
-        <div className="absolute inset-0 hidden bg-[#1b1320]/35 dark:block" />
+        <div className="absolute inset-0 bg-[#1b1320]/35" />
       </div>
       <div className="pointer-events-none absolute inset-x-[-6%] bottom-[18%] -z-20 h-[46%]" data-depth="0.12" data-scroll="0.3">
         <Image src="/gen/hero-buildings-far.webp" alt="" fill sizes="110vw" className="object-contain object-bottom opacity-90" />
@@ -168,11 +160,11 @@ export function Hero() {
       {/* ---- content ---- */}
       <div className="container-x relative grid min-h-[calc(100svh-72px)] grid-cols-1 items-center gap-8 py-10 lg:grid-cols-[1.05fr_1fr] lg:gap-4 lg:py-0">
         <div data-fade className="relative z-10 order-2 max-w-xl lg:order-1">
-          <div data-in="logo" className="relative -ml-2 aspect-[4096/3472] w-[min(72vw,380px)] drop-shadow-[0_18px_28px_rgba(42,27,18,.35)] sm:w-[420px]">
-            <Image src="/brand/doof-troop-logo.webp" alt="Doof Troop" fill priority sizes="(min-width: 640px) 420px, 72vw" className="object-contain object-left" />
+          <div data-in="logo" className="relative -ml-1 aspect-[1208/476] w-[min(78vw,400px)] drop-shadow-[0_18px_28px_rgba(0,0,0,.45)] sm:w-[460px]">
+            <Image src="/brand/astudio-logo.webp" alt="Astudio Gaming" fill priority sizes="(min-width: 640px) 460px, 78vw" className="object-contain object-left" />
           </div>
 
-          <h1 className="clip-words mt-2 text-[clamp(2.6rem,7vw,4.6rem)] text-ink dark:[text-shadow:0_3px_20px_rgba(0,0,0,.5)]">
+          <h1 className="clip-words mt-4 text-[clamp(2.6rem,7vw,4.6rem)] text-ink [text-shadow:0_3px_20px_rgba(0,0,0,.5)]">
             {site.tagline.split(" ").map((w, i) => (
               <span className="word mr-[0.28em]" key={i}>
                 <span data-in="word">{w}</span>
@@ -180,8 +172,8 @@ export function Hero() {
             ))}
           </h1>
 
-          <p data-in="copy" className="mt-5 max-w-md text-lg font-medium leading-relaxed text-ink-2 sm:text-xl dark:text-ink dark:[text-shadow:0_2px_14px_rgba(0,0,0,.55)]">
-            Physics-driven, cinematic casino games built in a real game engine, with certified RNG and RGS integrations for operators.
+          <p data-in="copy" className="mt-5 max-w-md text-lg font-medium leading-relaxed text-ink sm:text-xl [text-shadow:0_2px_14px_rgba(0,0,0,.55)]">
+            A game studio building physics-driven, cinematic casino games in Unreal Engine. Home of Doof Troop and Quickdraw Royale.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4">
@@ -206,7 +198,7 @@ export function Hero() {
         {/* ---- the Doof + troop ---- */}
         <div className="relative z-0 order-1 mx-auto aspect-square w-full max-w-[520px] [container-type:inline-size] lg:order-2 lg:max-w-none lg:aspect-[1/1.05]">
           <div data-in="lines" className="pointer-events-none absolute inset-[-14%] -z-10 opacity-0 [mask-image:radial-gradient(circle_at_50%_50%,black_30%,transparent_68%)]" data-depth="0.1">
-            <Image src="/gen/speedlines.webp" alt="" fill sizes="700px" className="object-contain opacity-45 mix-blend-multiply dark:opacity-25 dark:mix-blend-screen dark:invert" />
+            <Image src="/gen/speedlines.webp" alt="" fill sizes="700px" className="object-contain opacity-25 mix-blend-screen invert" />
           </div>
 
           {TROOP.map((t) => (
@@ -216,14 +208,6 @@ export function Hero() {
               </div>
             </div>
           ))}
-          {STICKERS.map((s) => (
-            <div key={s.src} className={`absolute ${s.cls} z-30 will-change-transform`} data-depth={s.depth}>
-              <div data-in="sticker" className="bob" style={{ ["--rot" as string]: `${s.rot}deg`, width: `${s.pct}cqw`, animationDelay: `${s.depth}s` }}>
-                <Image src={s.src} alt="" width={s.w} height={s.w} sizes="(min-width: 1024px) 6vw, 12vw" style={{ height: "auto" }} className="w-full" />
-              </div>
-            </div>
-          ))}
-
           <div data-in="dust" className="pointer-events-none absolute bottom-[2%] left-1/2 z-[5] w-[78%] -translate-x-1/2 opacity-0" data-depth="0.35">
             <Image src="/gen/dust-cloud.webp" alt="" width={900} height={900} style={{ height: "auto" }} className="w-full opacity-90" />
           </div>

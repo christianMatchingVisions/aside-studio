@@ -1,9 +1,8 @@
 const items = [
-  "Making gambling feel like gaming",
+  "Built for a generation of gamers",
   "Physics-driven",
   "Real-time 3D",
-  "Certified RNG & RGS",
-  "Built for a younger audience",
+  "Made in Unreal Engine",
   "Social by nature",
 ];
 

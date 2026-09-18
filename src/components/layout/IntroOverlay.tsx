@@ -58,8 +58,8 @@ export function IntroOverlay() {
       aria-hidden
       className="fixed inset-0 z-[100] grid place-items-center bg-choc will-change-transform"
     >
-      <div ref={logoRef} className="relative h-[40vmin] w-[70vmin] max-w-[560px] opacity-0">
-        <Image src="/brand/doof-troop-logo.webp" alt="" fill priority sizes="560px" className="object-contain" />
+      <div ref={logoRef} className="relative h-[30vmin] w-[70vmin] max-w-[560px] opacity-0">
+        <Image src="/brand/astudio-logo.webp" alt="" fill priority sizes="560px" className="object-contain" />
       </div>
     </div>
   );

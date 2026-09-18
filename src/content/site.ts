@@ -3,7 +3,7 @@ export const site = {
   shortName: "Astudio",
   tagline: "Making gambling feel like gaming",
   description:
-    "Astudio builds a new generation of casino games in a real game engine: physics-driven, cinematic, social, and fully RNG and RGS certified for operators.",
+    "Astudio is a game studio building a new generation of casino games in Unreal Engine: physics-driven, cinematic and social, built for a generation of gamers.",
   url: "https://astudiogaming.com",
   email: "victor@astudio.tv",
   phone: "+356 7905 4304",
@@ -13,6 +13,7 @@ export const site = {
     mapsHref: "https://maps.google.com/?q=St.+Julian's+Business+Centre,+Elia+Zammit+Street,+St+Julian's+STJ+3153,+Malta",
   },
   youtube: { doofTroop: "cXggi5TuvHk" },
+  streams: { doofTroop: "https://cloud.fireballserver.com/games/astudio/doof-troop/6/index.html" },
 } as const;
 
 export const nav = [
@@ -39,12 +40,6 @@ export const whatWeDo = {
       title: "Social by nature",
       body: "Designed for live environments where communities gather, react and engage together. Fun to play, and just as fun to watch.",
       color: "pink",
-    },
-    {
-      icon: "/icons/dice.webp",
-      title: "Certified fair",
-      body: "Industry-standard RNG and RGS integrations behind the scenes ensure fairness, reliability and seamless operation for operators.",
-      color: "green",
     },
     {
       icon: "/icons/controller.webp",
@@ -87,12 +82,12 @@ export const games: Game[] = [
       { icon: "/icons/engine.webp", text: "Modern rendering techniques and mechanics, rendered in real time" },
       { icon: "/icons/stopwatch.webp", text: "Round of about 60 seconds, including betting, race and win" },
       { icon: "/icons/controller.webp", text: "Easy to understand and user-friendly betting system" },
-      { icon: "/icons/multiplier.webp", text: "2 to 100× multipliers and 94.74% RTP" },
+      { icon: "/icons/multiplier.webp", text: "Up to 4.500× max win and RTP 94.74%" },
       { icon: "/icons/chips.webp", text: "Play multiple bets per round" },
     ],
     specs: [
       { label: "Round length", value: "~60 s" },
-      { label: "Multipliers", value: "2× to 100×" },
+      { label: "Max win", value: "4.500×" },
       { label: "RTP", value: "94.74%" },
       { label: "Bets per round", value: "Multiple" },
       { label: "Rendering", value: "Real-time 3D" },

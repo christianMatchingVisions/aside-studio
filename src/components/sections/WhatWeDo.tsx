@@ -22,7 +22,7 @@ export function WhatWeDo() {
           </p>
         </div>
 
-        <ul className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <ul className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {whatWeDo.pillars.map((p, i) => (
             <li key={p.title} data-reveal="pop" className="card-hard relative p-6 will-change-transform" style={{ ["--rot" as string]: rot[i] }}>
               <div className={`grid h-20 w-20 place-items-center rounded-2xl ${tint[p.color]}`}>

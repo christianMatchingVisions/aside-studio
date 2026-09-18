@@ -15,7 +15,7 @@ const PUB = resolve(root, "public");
 
 const jobs = [
   // ---- brand ----
-  { in: `${SRC}/current-site/logo.png`, out: "brand/astudio-logo.png", w: 600, png: true },
+  { in: `${SRC}/current-site/logo.png`, out: "brand/astudio-logo.png", w: 1200, png: true },
   { in: `${SRC}/user/game_doof_logo.png`, out: "brand/doof-troop-logo.png", w: 1200, png: true },
   { in: `${SRC}/current-site/game_quickdraw_logo.png`, out: "brand/quickdraw-logo.png", w: 900, png: true },
   { in: `${SRC}/current-site/game_racing_logo.png`, out: "brand/doof-racing-logo.png", w: 900, png: true },
@@ -60,7 +60,7 @@ const jobs = [
 
   // ---- generated icons + stickers (background stripped by cutout.py icons) ----
   ...[
-    "stopwatch", "multiplier", "dice", "controller", "crowd", "engine", "chips", "trophy", "flag", "revolver", "cowboyhat", "eye", "18plus",
+    "stopwatch", "multiplier", "dice", "controller", "crowd", "engine", "chips", "trophy", "flag", "finishflag", "revolver", "cowboyhat", "eye", "18plus",
   ].map((n) => ({ in: `${GEN}/cutouts/icon-${n}.png`, out: `icons/${n}.png`, w: 256, png: true, optional: true })),
   ...["star", "bolt", "pow", "cone", "cloud", "coin"].map((n) => ({ in: `${GEN}/cutouts/sticker-${n}.png`, out: `stickers/${n}.png`, w: 240, png: true, optional: true })),
 ];

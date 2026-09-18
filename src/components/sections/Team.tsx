@@ -16,7 +16,7 @@ export function Team() {
     <section id="team" className="relative scroll-mt-20 py-24 sm:py-32">
       <div className="pointer-events-none absolute inset-0 -z-10 text-ink bg-halftone" style={{ opacity: "var(--halftone-opacity)" }} />
       <div className="container-x">
-        <SectionHeading kicker="Our team" lines={["Game people.", "iGaming know-how."]} color="pink" align="center" className="mx-auto" />
+        <SectionHeading kicker="Our team" lines={["The Astudio team"]} color="pink" align="center" className="mx-auto" />
         <ul className="mx-auto mt-14 grid max-w-5xl grid-cols-2 gap-5 sm:gap-7 md:grid-cols-3 lg:grid-cols-5">
           {team.map((m, i) => (
             <li key={m.name} data-reveal="pop" style={{ ["--rot" as string]: rots[i] }} className="card-hard group flex flex-col items-center p-4 text-center will-change-transform sm:p-5">

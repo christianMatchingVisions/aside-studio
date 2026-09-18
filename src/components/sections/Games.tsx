@@ -1,9 +1,7 @@
 import Image from "next/image";
 import { games, site, type Game } from "@/content/site";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { VideoEmbed } from "@/components/ui/VideoEmbed";
-import { Button } from "@/components/ui/Button";
-import { Magnetic } from "@/components/ui/Magnetic";
+import { GameEmbed } from "@/components/ui/GameEmbed";
 import { ParallaxImage } from "@/components/motion/ParallaxImage";
 import { cn } from "@/lib/utils";
 
@@ -14,7 +12,7 @@ export function Games() {
       <div className="container-x">
         <SectionHeading kicker="Explore games" lines={["Built to be watched.", "Made to be played."]} color="yellow" align="center" className="mx-auto max-w-3xl [&_h2]:text-sticker" />
         <p data-reveal className="mx-auto mt-6 max-w-2xl text-center text-lg text-ink-2 sm:text-xl">
-          Short rounds, big moments, and characters people remember. Every title runs in real time on our engine and plugs into standard RNG and RGS stacks.
+          Built-in randomness within Unreal Engine helps ensure fairness, unpredictable outcomes and a reliable experience for operators and players.
         </p>
       </div>
 
@@ -107,7 +105,7 @@ function DoofTroop({ game }: { game: Game }) {
             ))}
           </div>
           <div data-reveal="right">
-            <VideoEmbed id={site.youtube.doofTroop} title="Doof Troop trailer" poster="/scenes/doof-city.webp" />
+            <GameEmbed src={site.streams.doofTroop} title="Doof Troop live game" poster="/scenes/doof-city.webp" caption="Live game client, running in real time. 18+ only." />
           </div>
         </div>
 
@@ -163,12 +161,6 @@ function Quickdraw({ game }: { game: Game }) {
           <div data-reveal="right" className="relative mx-auto w-[min(70vw,360px)] lg:w-full lg:max-w-[420px]">
             <div className="absolute inset-x-[10%] bottom-[-4%] h-8 rounded-[50%] bg-choc/30 blur-md" />
             <Image src="/chars/cowboy.webp" alt="A Quickdraw Royale gunslinger, hand hovering over his holster" width={480} height={790} style={{ height: "auto" }} className="relative w-full drop-shadow-[0_22px_24px_rgba(42,27,18,.4)]" />
-            <div data-reveal="pop" style={{ ["--rot" as string]: "-10deg" }} className="absolute -left-6 top-[8%] w-24 sm:w-28">
-              <Image src="/icons/cowboyhat.webp" alt="" width={120} height={110} style={{ height: "auto" }} className="bob w-full" />
-            </div>
-            <div data-reveal="pop" style={{ ["--rot" as string]: "12deg" }} className="absolute -right-4 top-[40%] w-20 sm:w-24">
-              <Image src="/stickers/star.webp" alt="" width={100} height={100} style={{ height: "auto" }} className="bob w-full [animation-delay:.8s]" />
-            </div>
           </div>
         </div>
 
@@ -202,17 +194,10 @@ function Racing({ game }: { game: Game }) {
             <h3 id="game-racing" className="mt-4 text-[clamp(1.8rem,3.6vw,2.6rem)] text-cream">
               {game.tagline}
             </h3>
-            <p className="mt-3 max-w-md text-lg text-cream/80">Same chaos, more horsepower. Want early access for your platform? Get in touch.</p>
-            <div className="mt-6">
-              <Magnetic>
-                <Button href={`mailto:${site.email}?subject=Doof%20Troop%20Racing%20early%20access`} variant="red">
-                  Ask about early access
-                </Button>
-              </Magnetic>
-            </div>
+            <p className="mt-3 max-w-md text-lg text-cream/80">Same chaos, more horsepower.</p>
           </div>
           <div className="hidden w-40 lg:block">
-            <Image src="/icons/flag.webp" alt="" width={200} height={200} style={{ height: "auto" }} className="bob w-full" />
+            <Image src="/icons/finishflag.webp" alt="" width={200} height={200} style={{ height: "auto" }} className="bob w-full" />
           </div>
         </div>
       </div>

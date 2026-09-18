@@ -10,9 +10,6 @@ export default function CookiesPage() {
       <p>We designed this site to run without tracking cookies, which is why there is no cookie banner.</p>
       <ul>
         <li>
-          <strong>Theme preference.</strong> If you switch between light and dark mode, your choice is stored in your browser&apos;s local storage (key <code>theme</code>). It never leaves your device and is strictly necessary to remember your setting.
-        </li>
-        <li>
           <strong>Analytics.</strong> Vercel Web Analytics measures visits using a privacy-friendly hash that is not stored as a cookie and cannot identify you across sites.
         </li>
       </ul>
@@ -23,7 +20,7 @@ export default function CookiesPage() {
       </p>
 
       <h2>3. Managing cookies</h2>
-      <p>You can clear local storage and cookies at any time through your browser settings. Doing so will reset your theme preference.</p>
+      <p>You can clear local storage and cookies at any time through your browser settings.</p>
     </LegalPage>
   );
 }

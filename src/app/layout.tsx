@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Baloo_2, Figtree } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
-import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { SmoothScroll } from "@/components/providers/SmoothScroll";
 import { site } from "@/content/site";
 import "./globals.css";
@@ -39,22 +38,18 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#fff6e9" },
-    { media: "(prefers-color-scheme: dark)", color: "#1b1320" },
-  ],
+  themeColor: "#1b1320",
+  colorScheme: "dark",
   width: "device-width",
   initialScale: 1,
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${baloo.variable} ${figtree.variable}`}>
+    <html lang="en" className={`dark ${baloo.variable} ${figtree.variable}`}>
       <body>
-        <ThemeProvider>
-          <SmoothScroll />
-          {children}
-        </ThemeProvider>
+        <SmoothScroll />
+        {children}
         <Analytics />
       </body>
     </html>

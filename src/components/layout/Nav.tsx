@@ -6,7 +6,6 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { nav, site } from "@/content/site";
 import { cn } from "@/lib/utils";
-import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { Button } from "@/components/ui/Button";
 import { Magnetic } from "@/components/ui/Magnetic";
 
@@ -61,7 +60,6 @@ export function Nav() {
         </ul>
 
         <div className="flex items-center gap-3">
-          <ThemeToggle />
           <Magnetic className="hidden md:inline-block" strength={0.25}>
             <Button href={`mailto:${site.email}`} size="md">
               Get in touch
