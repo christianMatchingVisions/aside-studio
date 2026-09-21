@@ -38,6 +38,41 @@ function Features({ game, cols = 2 }: { game: Game; cols?: 1 | 2 }) {
   );
 }
 
+function Extras({ extras }: { extras: NonNullable<Game["extras"]> }) {
+  const tone = {
+    yellow: "bg-yellow text-choc",
+    red: "bg-red text-white",
+  } as const;
+  return (
+    <div className="mt-16 grid gap-8 lg:grid-cols-[1fr_1.4fr] lg:items-center">
+      <div>
+        <p data-reveal className="inline-flex items-center gap-2 rounded-full border-2 border-(--line-strong) bg-surface px-3 py-1 font-display text-sm font-bold uppercase tracking-wider text-ink">
+          <span className="h-2 w-2 rounded-full bg-red" />
+          {extras.kicker}
+        </p>
+        <h4 data-reveal className="mt-3 text-[clamp(1.8rem,3.6vw,2.6rem)] text-ink">
+          {extras.title}
+        </h4>
+        <p data-reveal className="mt-4 text-lg leading-relaxed text-ink-2">
+          {extras.intro}
+        </p>
+      </div>
+      <ul className="grid gap-5 sm:grid-cols-2">
+        {extras.tiers.map((t, i) => (
+          <li key={t.name} data-reveal="pop" style={{ ["--rot" as string]: i ? "1.2deg" : "-1.2deg" }} className="card-hard flex flex-col p-6 will-change-transform">
+            <span className={`inline-flex w-fit items-center gap-2 rounded-full border-2 border-choc px-3 py-1 font-display text-sm font-bold uppercase tracking-wider ${tone[t.color]}`}>
+              <Image src="/icons/multiplier.webp" alt="" width={20} height={20} className="h-5 w-5" />
+              {t.name}
+            </span>
+            <span className="mt-4 font-display text-[2.6rem] font-extrabold leading-none text-ink">{t.value}</span>
+            <p className="mt-3 leading-relaxed text-ink-2">{t.body}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
 function Specs({ game }: { game: Game }) {
   return (
     <dl data-reveal className="card-hard overflow-hidden">
@@ -113,6 +148,8 @@ function DoofTroop({ game }: { game: Game }) {
           <Features game={game} />
           <Specs game={game} />
         </div>
+
+        {game.extras && <Extras extras={game.extras} />}
       </div>
 
       {/* stampede banner */}

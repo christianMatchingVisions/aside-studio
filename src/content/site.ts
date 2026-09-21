@@ -63,6 +63,12 @@ export type Game = {
   specs: { label: string; value: string }[];
   shots: string[];
   video?: string;
+  extras?: {
+    kicker: string;
+    title: string;
+    intro: string;
+    tiers: { name: string; value: string; body: string; color: "yellow" | "red" }[];
+  };
 };
 
 export const games: Game[] = [
@@ -72,26 +78,50 @@ export const games: Game[] = [
     logo: "/brand/doof-troop-logo.webp",
     status: "live",
     accent: "yellow",
-    tagline: "A chaotic, physics-driven race where every round is completely unique.",
+    tagline: "Roulette-style betting meets a chaotic live race.",
     description: [
-      "Doof Troop is a chaotic and fast-paced, physics-driven racing game, with memorable characters racing through obstacle-filled courses. With many tracks and dynamic elements, each race is totally unique and unpredictable.",
-      "Being our first game, Doof Troop sets a new standard for modern casino games, built to create engaging moments for a younger audience.",
+      "Doof Troop is a fast-paced racing and betting game where 18 unpredictable characters battle through chaotic, obstacle-filled tracks. The betting system is inspired by roulette, so it feels familiar from the first round: bet on individual Doofs, or on groups defined by colour, pattern, accessories and other shared traits.",
+      "Players can back a Doof to finish 1st, Top 2 or Top 3, while group bets offer different levels of risk and reward, much like betting on numbers, colours or sections of a roulette table.",
+      "Once betting closes, the race runs automatically in Unreal Engine. Physics-based movement, collisions, boosts, obstacles and knockouts make every round unfold differently, combining the familiarity of roulette with the excitement of a live race.",
     ],
     features: [
-      { icon: "/icons/dice.webp", text: "Chaotic, physics-driven race where every round is completely unique" },
-      { icon: "/icons/engine.webp", text: "Modern rendering techniques and mechanics, rendered in real time" },
+      { icon: "/icons/crowd.webp", text: "18 unpredictable Doofs racing through obstacle-filled tracks" },
+      { icon: "/icons/chips.webp", text: "Roulette-inspired bets on single Doofs or groups by colour, pattern and accessories" },
+      { icon: "/icons/trophy.webp", text: "Bet on 1st, Top 2 or Top 3, with group bets at different risk levels" },
+      { icon: "/icons/engine.webp", text: "Races run automatically in Unreal Engine with physics, boosts and knockouts" },
       { icon: "/icons/stopwatch.webp", text: "Round of about 60 seconds, including betting, race and win" },
-      { icon: "/icons/controller.webp", text: "Easy to understand and user-friendly betting system" },
       { icon: "/icons/multiplier.webp", text: "Up to 4.500× max win and RTP 94.74%" },
-      { icon: "/icons/chips.webp", text: "Play multiple bets per round" },
     ],
     specs: [
+      { label: "Characters", value: "18 Doofs" },
       { label: "Round length", value: "~60 s" },
+      { label: "Bet types", value: "1st, Top 2, Top 3, groups" },
+      { label: "Combo", value: "Up to 500×" },
+      { label: "Crazy Combo", value: "Up to 5,000×" },
       { label: "Max win", value: "4.500×" },
       { label: "RTP", value: "94.74%" },
-      { label: "Bets per round", value: "Multiple" },
-      { label: "Rendering", value: "Real-time 3D" },
+      { label: "Engine", value: "Unreal Engine, real-time 3D" },
     ],
+    extras: {
+      kicker: "Bonus bets",
+      title: "Combo & Crazy Combo",
+      intro:
+        "Combo and Crazy Combo add a high-potential layer to every race. Players predict a combination of Doofs or qualifying outcomes before the start, then watch the 18 Doofs battle through the track knowing a specific set of finishing positions or characteristics could trigger a substantial payout.",
+      tiers: [
+        {
+          name: "Combo",
+          value: "Up to 500×",
+          body: "Select a combination of Doofs or outcomes before the race. If the combination comes in, the bet pays up to 500× the stake.",
+          color: "yellow",
+        },
+        {
+          name: "Crazy Combo",
+          value: "Up to 5,000×",
+          body: "An extreme-risk, high-reward combination bet for players chasing the biggest payout. A successful Crazy Combo pays up to 5,000× the stake.",
+          color: "red",
+        },
+      ],
+    },
     shots: ["/shots/doof-1.webp", "/shots/doof-2.webp", "/shots/doof-3.webp"],
     video: "cXggi5TuvHk",
   },
