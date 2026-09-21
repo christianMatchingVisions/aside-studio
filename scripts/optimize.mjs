@@ -37,7 +37,10 @@ const jobs = [
   { in: `${SRC}/user/DT_Thumbnail_Base.png`, out: "scenes/doof-city.webp", w: 1800 },
 
   // ---- screenshots ----
-  ...[1, 2, 3].map((i) => ({ in: `${SRC}/current-site/doof_${i}.png`, out: `shots/doof-${i}.webp`, w: 1400 })),
+  // Doof Troop shots captured from the live game client (source-assets/shots)
+  { in: `${SRC}/shots/game-b.png`, out: "shots/doof-1.webp", w: 1400 },
+  { in: `${SRC}/shots/game-a.png`, out: "shots/doof-2.webp", w: 1400 },
+  { in: `${SRC}/shots/game-c.png`, out: "shots/doof-3.webp", w: 1400 },
   ...[1, 2, 3].map((i) => ({ in: `${SRC}/current-site/quick_${i}.png`, out: `shots/quick-${i}.webp`, w: 1400 })),
 
   // ---- team ----
