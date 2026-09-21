@@ -102,7 +102,7 @@ export const games: Game[] = [
       { label: "Bet types", value: "1st, Top 2, Top 3, groups" },
       { label: "Combo", value: "Up to 500×" },
       { label: "Crazy Combo", value: "Up to 5,000×" },
-      { label: "Max win", value: "4.500×" },
+      { label: "Max win", value: "5,000×" },
       { label: "RTP", value: "94.74%" },
       { label: "Engine", value: "Unreal Engine, real-time 3D" },
     ],
