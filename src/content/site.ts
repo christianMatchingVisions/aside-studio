@@ -31,8 +31,8 @@ export const whatWeDo = {
   pillars: [
     {
       icon: "/icons/engine.webp",
-      title: "Real game engine",
-      body: "Every title is built in a state-of-the-art engine, so we deliver rich visuals, dynamic gameplay and cinematic moments that feel alive on screen.",
+      title: "Unreal game engine",
+      body: "Every title is built in Unreal Engine, so we deliver rich visuals, dynamic gameplay and cinematic moments that feel alive on screen.",
       color: "purple",
     },
     {
