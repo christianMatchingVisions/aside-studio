@@ -12,6 +12,10 @@ export const site = {
     lines: ["Level 6, St. Julian's Business Centre", "Elia Zammit Street", "St. Julian's STJ 3153", "Malta"],
     mapsHref: "https://maps.google.com/?q=St.+Julian's+Business+Centre,+Elia+Zammit+Street,+St+Julian's+STJ+3153,+Malta",
   },
+  contacts: [
+    { name: "Victor Skalin", role: "Creative Director", email: "victor@astudio.tv", phone: "+356 7905 4304", phoneHref: "tel:+35679054304" },
+    { name: "Jonas Lutteman", role: "COO / Co-Founder", email: "jonas@astudio.tv", phone: "+356 7988 9500", phoneHref: "tel:+35679889500" },
+  ],
   youtube: { doofTroop: "cXggi5TuvHk" },
   streams: { doofTroop: "https://cloud.fireballserver.com/games/astudio/doof-troop/6/index.html" },
 } as const;

@@ -28,12 +28,19 @@ export function Footer() {
           </div>
           <div>
             <h3 className="font-display text-sm font-bold uppercase tracking-wider text-cream/60">Contact</h3>
-            <address className="mt-3 space-y-1 not-italic text-cream/85">
-              <a href={`mailto:${site.email}`} className="block font-semibold hover:underline">{site.email}</a>
-              <a href={site.phoneHref} className="block hover:underline">{site.phone}</a>
-              {site.address.lines.map((l) => (
-                <span key={l} className="block text-cream/60">{l}</span>
+            <address className="mt-3 not-italic text-cream/85">
+              {site.contacts.map((c) => (
+                <div key={c.email} className="mb-3">
+                  <span className="block text-sm text-cream/60">{c.name}</span>
+                  <a href={`mailto:${c.email}`} className="block font-semibold hover:underline">{c.email}</a>
+                  <a href={c.phoneHref} className="block hover:underline">{c.phone}</a>
+                </div>
               ))}
+              <div className="space-y-1">
+                {site.address.lines.map((l) => (
+                  <span key={l} className="block text-cream/60">{l}</span>
+                ))}
+              </div>
             </address>
           </div>
           <div>

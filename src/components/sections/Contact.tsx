@@ -1,7 +1,5 @@
 import Image from "next/image";
 import { site } from "@/content/site";
-import { Button } from "@/components/ui/Button";
-import { Magnetic } from "@/components/ui/Magnetic";
 
 export function Contact() {
   return (
@@ -19,16 +17,20 @@ export function Contact() {
               <p className="mt-4 max-w-lg text-lg font-medium text-choc/80">
                 Operators, aggregators and platform partners: drop us a line and we&apos;ll set up a demo.
               </p>
-              <div className="mt-8 flex flex-wrap items-center gap-4">
-                <Magnetic>
-                  <Button href={`mailto:${site.email}`} size="lg" variant="red">
-                    {site.email}
-                  </Button>
-                </Magnetic>
-                <a href={site.phoneHref} className="font-display text-xl font-bold underline decoration-2 underline-offset-4 hover:decoration-4">
-                  {site.phone}
-                </a>
-              </div>
+              <ul className="mt-8 grid gap-4 sm:grid-cols-2">
+                {site.contacts.map((c) => (
+                  <li key={c.email} className="card-hard bg-cream p-5 text-choc transition-transform duration-200 hover:-translate-y-1">
+                    <p className="font-display text-lg font-bold leading-tight">{c.name}</p>
+                    <p className="text-sm font-semibold text-choc/60">{c.role}</p>
+                    <a href={`mailto:${c.email}`} className="mt-3 block break-words font-display font-bold text-red-deep underline decoration-2 underline-offset-4 hover:decoration-4">
+                      {c.email}
+                    </a>
+                    <a href={c.phoneHref} className="mt-1 block font-semibold underline decoration-2 underline-offset-4 hover:decoration-4">
+                      {c.phone}
+                    </a>
+                  </li>
+                ))}
+              </ul>
             </div>
 
             <address className="relative not-italic">
